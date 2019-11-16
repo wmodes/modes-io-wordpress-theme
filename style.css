@@ -1,0 +1,1096 @@
+/*
+Theme Name:     Modes-io-understap
+Theme URI:      
+Description:    Modes.io Theme (a child of Understrap)
+Author:         Wes Modes (wmodes@gmail.com)
+Author URI:     https://modes.io
+Template:       understrap
+Version:        0.1.0
+*/
+
+/* Download Google fonts */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Yanone+Kaffeesatz&display=swap');
+
+:root {
+    --body-width:           750px;
+    --body-font-size:       20px;
+    /*--body-font-face: 'Open Sans', sans-serif;*/
+    --body-font-face:       medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
+    --body-font-color:      rgba(0, 0, 0, 0.84);
+    --body-font-weight:     400;
+    --body-line-height:     1.58;
+    /*--link-font-color:      #0090d3;*/
+    --link-font-color:      #ec521e;
+    --link-font-color-fade: #b84018;
+    --heading-font-face:    'Yanone Kaffeesatz', sans-serif;
+    /*--heading-font-face:    'Open Sans', sans-serif;*/
+    --heading-font-color:   rgba(0, 0, 0, 0.84);
+    --heading-font-weight:  200;
+    --caption-font-family:  'Open Sans', sans-serif;
+    --caption-font-size:    15px;
+    --caption-font-color:   #555d66;
+    --archive-font-family:  'Open Sans', sans-serif;
+    --archive-font-size-lg: 25px;
+    --archive-font-size-md: 20px;
+    --archive-font-size-sm: 15px;
+    --archive-font-color:   #fff;
+}
+
+/**********************************************************
+ *
+ * TYPOGRAPHY
+ *
+ **********************************************************/
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea,
+nav {
+    color:          var(--body-font-color) !important;
+    font-family:    var(--body-font-face) !important;
+    font-size:      var(--body-font-size) !important;
+    line-height:    var(--body-line-height) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:    var(--heading-font-face) !important;
+    color:          var(--heading-font-color) !important;
+    font-weight:    var(--heading-font-weight) !important; 
+    clear:          both;
+    line-height:    1em !important;
+    margin-bottom:  0.5rem !important;
+    margin-top:     0.25rem !important;
+}
+
+h1 { 
+    font-size:      2.5rem;  
+}
+h2, h3, h4, h5, h6 {
+}
+h2 { 
+    font-size:      2.2rem !important; 
+}
+h3 { 
+    font-size:      2.0rem !important; 
+}
+h4 { 
+    font-size:      1.8rem !important; 
+}
+h5 { 
+    font-size:      1.5rem !important; 
+}
+h6 { 
+    font-size:      1.3rem !important; 
+}
+
+.subtitle {
+    font-size:      1.2rem;
+    font-style:     italic;
+    margin-top:     0;
+    margin-left:    0;
+    padding-left:   0;
+    font-weight:    light;
+ }
+
+ #main-menu {
+    color:          #fff;
+    font-weight:    bolder;
+    font-size:      1.0rem;
+ }
+
+ p {
+    margin-bottom:  1.5rem !important;
+ }
+
+/* Captions */
+figcaption {
+    font-family:    var(--caption-font-family);
+}
+
+.site-info,
+.wp-block-image figcaption {
+    margin-top:     .5rem;
+    margin-bottom:  1rem;
+    color:          var(--caption-font-color) !important;
+    text-align:     center;
+    font-size:      var(--caption-font-size) !important;
+}
+
+/* Home page */
+
+body.home h1.page-title {
+    white-space:    nowrap;
+    font-size: 7.6vw;
+}
+
+/*@media screen and (min-width: 1200px) {
+    body.home h1.page-title {
+        font-size: 8vw !important;
+    }
+}
+@media screen and (min-width: 1000px) {
+    body.home h1.page-title {
+        font-size: 9vw !important;
+    }
+}
+@media screen and (min-width: 992px) {
+    body.home h1.page-title {
+        font-size: 7.1vw !important;
+    }
+}
+@media screen and (min-width: 992px) {
+    body.home h1.page-title {
+        font-size: 6.7vw !important;
+    }
+}*/
+
+
+/**********************************************************
+ *
+ * LINKS 
+ *
+ **********************************************************/
+
+a {
+    color:          var(--link-font-color); 
+    text-decoration: none; 
+}
+
+a:visited, a:active {
+}
+
+a:hover, a:focus {
+    text-decoration:    none !important;
+}
+
+a:hover, a:active {
+    color:      var(--link-font-color);
+    outline:    0;
+}
+
+a img { 
+    border: none; 
+}
+
+.entry-header a,
+.entry-content a,
+.entry-footer a,
+#wrapper-footer a,
+.widget a,
+.singlenav a,
+.commentlist a,
+.logged-in-as a,
+.post-navigation a,
+.pagination a { 
+    color:              var(--link-font-color);
+    text-decoration:    none; 
+}
+
+.page-link {
+    color:              var(--link-font-color) !important;
+}
+.page-link.current {
+    color: #fff !important;
+    background-color: var(--link-font-color) !important;
+    border-color: var(--link-font-color) !important;
+}
+.pagination {
+    margin-top: 1.5rem;
+}
+
+    
+.entry-content a:hover,
+.entry-footer a:hover,
+#wrapper-footer a:hover,
+.widget a:hover,
+.singlenav a:hover,
+.commentlist a:hover,
+.logged-in-as a:hover,
+.post-navigation a:hover,
+.pagination a:hover {  
+    color:              var(--link-font-color);
+    text-decoration:    none;
+    border-bottom:      dotted 2px var(--link-font-color);
+}
+
+a,
+.widget > h3, 
+.widget > h3 i,
+.ed_button,
+#submit,
+.thumb-shadow,
+.firstpart,
+#menu1 i,
+.commentlist li > div,
+.commentlist .avatar {
+    transition:         all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition:    all 0.5s ease-out;
+    -o-transition:      all 0.5s ease-out;
+}
+
+/**********************************************************
+ *
+ * BODY STYLES
+ *
+ **********************************************************/
+
+body {
+    margin:      0;
+}
+
+article {
+    max-width:      var(--body-width) !important;
+    margin-left:    auto;
+    margin-right:   auto;
+}
+
+/*
+ *
+ * IMAGES
+ *
+ */
+
+/* disappear posting the featured image (which is not properly classed) */
+.single-post .wp-post-image {
+    display:    none;
+}
+.single-post .entry-content,
+.single-post .yarpp-related {
+    display:    inherit;
+}
+
+/* first make sure they don't overlap with clearfix */
+.wp-block-image figure:before,
+.wp-block-image figure:after
+ {
+    content:        "";
+    display:        table;
+    clear:          both;
+}
+
+/* push to left of text margin */
+figure.wp-block-image.alignleft,
+.wp-block-image figure.alignleft {
+    width:          500px;
+    margin-left:    -150px!important;
+    /* add centering in case image is smaller than container */
+    text-align: center;
+}
+
+/* push to right of text margin */
+figure.wp-block-image.alignright,
+.wp-block-image figure.alignright {
+    width:          500px;
+    margin-right:   -150px!important;
+    /* add centering in case image is smaller than container */
+    text-align: center;
+}
+
+/* push to both left and right of text margin */
+figure.wp-block-image.alignwide,
+.wp-block-image figure.alignwide,
+ul.wp-block-gallery {
+    width:          1050px;
+    margin-left:   -150px!important;
+    max-width: inherit;
+    /* add centering in case image is smaller than container */
+    text-align: center;
+}
+
+/* push to edges of screen */
+figure.wp-block-image.alignfull,
+.wp-block-image figure.alignfull {
+    width: initial !important;
+}
+
+figure.wp-block-image.alignfull img,
+.wp-block-image figure.alignfull img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    min-width: 100vw;
+    height: auto !important;
+}
+
+@media screen and (max-width: 1050px) {
+    figure.wp-block-image.alignleft,
+    .wp-block-image figure.alignleft,
+    figure.wp-block-image.alignright,
+    .wp-block-image figure.alignright,
+    figure.wp-block-image.alignwide,
+    .wp-block-image figure.alignwide,
+    ul.wp-block-gallery {
+        width:      100%;
+        margin-left: 0 !important;
+    }
+}
+
+/* Adjust margins */
+
+figure.wp-block-image,
+.wp-block-image figure {
+    margin-bottom:  0;
+}
+
+figure.wp-block-image.alignwide,
+.wp-block-image figure.alignwide,
+figure.wp-block-image.alignfull,
+.wp-block-image figure.alignfull {
+    margin-bottom:  2rem;
+}
+
+/* Panoramic images */
+
+/* Because a long image (even hiddden) blows out the
+   right margin, we render this with "display: none;"
+   and then use jQuery to turn it on when the page
+   renders:
+   $(".wp-block-image.pano figure,figure.pano")
+        .css("display", "block");
+*/
+figure.wp-block-image.pano,
+.wp-block-image.pano figure,
+.wp-block-image figure.pano {
+    display: none;
+    height: auto;
+    width: 1050px;
+    margin-left: -150px!important;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    min-width: 1050px;
+}
+
+figure.wp-block-image.pano img,
+.wp-block-image.pano figure img,
+.wp-block-image figure.pano img {
+    height: auto;
+    width: auto!important;
+    min-width: 3000px;
+    max-width: inherit;
+}
+
+figure.wp-block-image.pano:before,
+.wp-block-image.pano figure:before,
+.wp-block-image figure.pano:before {
+    position: absolute;
+    left: 50%;
+    transform:  translate(-50%, 200px);
+        color: white;
+    content: ' ';
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' fill='rgb(255,255,255,1)' viewBox='0 0 232.395 232.395' style='enable-background:new 0 0 232.395 232.395;' xml:space='preserve'%3E%3Cpath d='M177.121,83.258c-5.921,0-11.324,2.26-15.393,5.962c-4.068-3.702-9.472-5.962-15.393-5.962 c-5.925,0-11.333,2.261-15.404,5.963c-1.672-1.522-3.579-2.783-5.645-3.76c7.467-9.163,11.828-20.792,11.828-33.095 C137.115,23.491,113.627,0,84.756,0C55.878,0,32.383,23.491,32.383,52.366c0,20.105,11.649,38.4,29.469,47.085v63.871 c0,38.086,30.988,69.072,69.077,69.072c38.092,0,69.083-30.986,69.083-69.072V106.15C200.012,93.527,189.743,83.258,177.121,83.258z M47.383,52.366C47.383,31.762,64.148,15,84.756,15c20.6,0,37.359,16.762,37.359,37.366c0,11.702-5.529,22.549-14.467,29.515V52.366 c0-12.628-10.27-22.902-22.893-22.902c-12.629,0-22.904,10.274-22.904,22.902v29.513C52.912,74.915,47.383,64.068,47.383,52.366z M185.012,163.322c0,29.815-24.262,54.072-54.083,54.072c-29.818,0-54.077-24.257-54.077-54.072V94.887 c0.013-0.251,0.013-0.502,0-0.751v-41.77c0-4.357,3.546-7.902,7.904-7.902c4.352,0,7.893,3.545,7.893,7.902v53.784v16.451 c0,4.142,3.358,7.5,7.5,7.5c4.142,0,7.5-3.358,7.5-7.5V106.15c0-4.352,3.54-7.893,7.891-7.893c4.351,0,7.89,3.541,7.89,7.893v16.451 c0,4.142,3.358,7.5,7.5,7.5c4.142,0,7.5-3.358,7.5-7.5V106.15c0-4.352,3.547-7.893,7.907-7.893c4.352,0,7.893,3.541,7.893,7.893 v16.451c0,4.142,3.358,7.5,7.5,7.5c4.142,0,7.5-3.358,7.5-7.5V106.15c0-4.352,3.541-7.893,7.893-7.893 c4.351,0,7.891,3.541,7.891,7.893V163.322z'/%3E%3C/svg%3E%0A");
+    width: 150px;
+    height: 150px;
+    z-index: 10;
+    opacity: 0.75;
+    transition: opacity .25s linear 2s;
+}
+
+figure.wp-block-image.pano:hover:before,
+.wp-block-image.pano figure:hover:before,
+.wp-block-image figure.pano:hover:before {
+    opacity: 0;
+    transition: opacity .25s linear 0s;
+}
+
+@media screen and (max-width: 1050px) {
+    figure.wp-block-image.pano,
+    .wp-block-image.pano figure,
+    .wp-block-image figure.pano {
+        margin-left: 0 !important;
+        min-width:  100%;
+    }
+}
+
+/**********************************************************
+ *
+ * HEADERS
+ *
+ **********************************************************/
+
+/* Site-title and Navbar */
+
+nav.navbar.bg-primary .container {
+    display:                flex;
+    flex-direction:         row;
+    -webkit-flex-direction: row;
+    flex-wrap:              nowrap;
+    -webkit-flex-wrap:      nowrap;
+    justify-content:        space-between !important;
+    -webkit-justify-content: space-between !important;
+    align-items:            center;
+    -webkit-align-items:    center;
+}
+
+nav.navbar.bg-primary {
+    background-color:   transparent !important;
+    /*background-color: red !important;*/
+}
+
+nav.navbar .navbar-brand {
+    font-family:    var(--heading-font-face);
+    font-size:      2.1rem !important;
+    font-weight:    normal;
+    /*margin:         10px auto 10px auto;*/
+    line-height:    1.4rem;
+}
+
+nav.navbar .navbar-brand a,
+nav.navbar a.navbar-brand {
+    color:          var(--body-font-color) !important;
+}
+
+nav.navbar .navbar-brand:hover {
+    color:          var(--link-font-color) !important;
+    text-decoration: none;
+}
+
+.site-description {
+    font-family:    var(--body-font-face);
+    font-weight:    var(--body-font-weight);
+    font-size:      var(--body-font-size);
+    color:          var(--body-font-color);
+    letter-spacing: 0px;
+    /*margin:         0 auto 0 auto;*/
+}
+
+/* Byline and dateline */
+.entry-meta {
+    margin-bottom:  1rem;
+    font-family:    var(--caption-font-family);
+    font-size:      var(--caption-font-size);
+    color:          var(--caption-font-color);
+    display:        flex;
+    flex-direction: column-reverse;
+}
+/* turn off the text "Posted on" and "by" */
+.entry-meta span {
+    font-size:      0;
+    display:        block;
+}
+.entry-meta span a {
+    font-size:      var(--caption-font-size);
+    color:          var(--caption-font-color);
+    pointer-events: none;
+    font-weight:    100;
+}
+.entry-meta .author a {
+    color:          var(--body-font-color);
+    font-weight:    var(--body-font-weight);
+}
+.entry-meta time.updated {
+    display:        none;
+}
+
+/* Post or Archive title */
+
+span.title-spice {
+    color:          var(--link-font-color);
+}
+
+/**********************************************************
+ *
+ * MENU
+ *
+ **********************************************************/
+
+/* make navburger always visible */
+.navbar .navbar-toggler {
+    display:        block !important;
+    z-index:        10000;
+    border-color:   transparent !important;
+}
+
+button.navbar-toggler:focus {
+    outline:        none;
+}
+
+/* make it so navbar is always hidden */
+nav.navbar #navbarNavDropdown.collapse:not(.show) {
+    display:        none !important;
+    /*display:      flex !important;*/
+    /*visibility:   hidden !important;*/
+}
+/* unless we have added the "show" class */
+nav.navbar #navbarNavDropdown.show {
+    display:        flex !important;
+    /*visibility:   visible !important;*/
+}
+
+/* fade the menu text in */
+nav.navbar #navbarNavDropdown #main-menu {
+    opacity:        0.0;
+    transition:     opacity .25s linear .125s;
+}
+nav.navbar #navbarNavDropdown.show #main-menu {
+    opacity:        1.0;
+}
+
+.navbar .navbar-toggler-icon {
+    transition:     all .5s linear 0.5s;
+}
+
+.navbar [aria-expanded="false"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(236,82,30,1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar [aria-expanded="true"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' fill-rule='evenodd' clip-rule='evenodd'%3E%3Cpath stroke='rgba(255,255,255,1)' d='M24 12c0 6.623-5.377 12-12 12s-12-5.377-12-12 5.377-12 12-12 12 5.377 12 12zm-1 0c0 6.071-4.929 11-11 11s-11-4.929-11-11 4.929-11 11-11 11 4.929 11 11zm-11.5-4.828l-3.763 4.608-.737-.679 5-6.101 5 6.112-.753.666-3.747-4.604v11.826h-1v-11.828z'/%3E%3C/svg%3E"); !important;
+}
+
+nav.navbar #navbarNavDropdown {
+    /*border:         solid 1px black;*/
+    position:       fixed;
+    top:            0;
+    right:          0;
+    height:         100vh;
+    width:          50%;
+    min-width:      375px;
+    max-width:      100% !important;
+    padding-top:    80px;
+    background-color: var(--link-font-color);
+    z-index:        100;
+    opacity:        0.99;
+    align-items:    center;
+    overflow-x:     hidden;
+    overflow-y:     scroll;
+    transition:     height 0.25s linear;
+    /*transition:     all 10s linear;*/
+}
+
+nav.navbar #navbarNavDropdown.show {
+    transition:     height 0s linear;
+}
+
+@media screen and (max-height: 500px) {
+    nav.navbar #navbarNavDropdown {
+        align-items:    flex-start;
+        padding-top:    100px;
+    }
+}
+
+#main-menu {
+    margin-left:        auto;
+    margin-right:       auto;
+    flex-direction:     column;
+    max-width:          21rem;
+}
+
+/* Menu Search */
+
+.input-group input {
+    /*border: solid 1px red;*/
+    height:         28px;
+}
+
+.menu-search {
+    /*margin-top: 15px;*/
+    /*height: 28px;*/
+    padding:        .75rem .25rem;
+}
+
+.input-group #s {
+    border-radius:  .25rem;
+    max-width:      200px;
+}
+
+/* turn off the button */
+.input-group input#searchsubmit {
+    display:        none;
+}
+
+/* Turn off irritating edit link */
+.is-link-container {
+    display:        none !important;
+    margin:         inherit;
+}
+
+/**********************************************************
+ *
+ * FOOTERS
+ *
+ **********************************************************/
+
+
+/*
+ *
+ * ELEMENTS
+ *
+ */
+
+ /* Related post links */
+
+.yarpp-thumbnails-horizontal .yarpp-thumbnail {
+    height: auto !important;
+}
+.yarpp-related .yarpp-thumbnail-title {
+    margin-bottom: 0 !important;
+}
+
+ /* Newspaper columns */
+
+ .two-col {
+    column-count:   2;
+ }
+
+ .two-col-wide {
+    column-count:   2;
+    width:          1050px;
+    margin-left:    -150px!important;
+    max-width:      inherit;
+ }
+
+ @media screen and (max-width: 1050px) {
+    .two-col-wide {
+        width:      100%;
+        margin-left: 0 !important;
+    }
+}
+
+
+ /* Blockquotes */
+
+ blockquote {
+    display:        block;
+    color:          #777777;
+    margin-top:     -3.3rem;
+    margin-bottom:  0px;
+    padding-left:   0.5rem;
+    position:       relative;
+    left:           0.5rem;
+    z-index:        -1; 
+}
+
+blockquote:before{
+    content:        url("/wp-content/themes/modes-io-understap/img/open_quote.gif");
+    position:       relative;
+    top:            2.8rem;
+    left:           -1rem;
+    z-index:        -1;
+    margin-top:     -2.8rem;
+}
+
+blockquote.noindent {
+    padding-left:   0s !important;
+    left:           -2.2rem !important;
+}
+
+hr {
+    background-color: #ccc;
+    border:         0;
+    height:         1px;
+    margin-bottom:  1.5rem;
+}
+
+/* Ordered lists */
+
+.hentry ol {
+    list-style: none;
+    *list-style: decimal;
+    padding: 0;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+.hentry ol li:before {
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    z-index: -1;
+    left: 10px;
+    top: 50%;
+    margin-top: -1rem;
+    height: 2rem;
+    width: 2rem;
+    line-height: 2rem;
+    color: #fff;
+    background: #ddd;
+    text-align: center;
+    font-weight: bold;
+    font-size: 130%;
+    border-radius: 3rem;
+    transition: all .3s ease-out;
+}
+
+.hentry ol li {
+    position: relative;
+    display: block;
+    padding: .4rem .4rem .4rem 3rem;
+    /*padding: .4rem;*/
+    margin: .5rem 0;
+    text-decoration: none;
+    border-radius: .3rem;
+    transition: all .3s ease-out;
+}
+
+/* Remove tag and category links */
+
+.hentry .cat-links,
+.hentry .tags-links,
+.hentry .edit-link {
+    display: none;
+}
+
+/**********************************************************
+ *
+ * LIGHTBOX
+ *
+ **********************************************************/
+
+/* Lightbox with PhotoSwipe */
+
+.pswp__bg {
+    background-color: rgba(255,255,255,1) !important;
+}
+
+.pswp--animated-in .pswp__bg, 
+.pswp--animated-in .pswp__zoom-wrap {
+    /*-webkit-transition: all 0.5s !important;;*/
+    /*transition: opacity 0.5s !important;*/
+    background-color: rgba(255,255,255,1) !important;
+}
+
+.pswp__top-bar, 
+.pswp__caption {
+    background-color: rgba(255,255,255,1) !important;
+}
+
+.pswp__top-bar button {
+    filter:         invert(1);
+}
+
+.pswp__button--arrow--left, 
+.pswp__button--arrow--right {
+    background:     none;
+    top:            50%;
+    margin-top:     -50px;
+    width:          70px;
+    height:         100px;
+    position:       absolute;
+    filter:         invert(1);
+}
+
+.pswp__caption .pswp__caption__center {
+    font-family:    var(--caption-font-family) !important;
+    color:          var(--caption-font-color) !important;
+    font-size:      var(--caption-font-size) !important;
+}
+
+
+/**********************************************************
+ *
+ * ARCHIVE AND FRONT PAGES
+ *
+ **********************************************************/
+
+/* Article-box layout */
+
+.postbox,
+.postbox .post {
+    position:           relative;
+    width:              100%;
+    height:             100%;
+    overflow:           hidden;
+}
+
+.postbox {
+    /*margin:           7px;*/
+    /*margin:             0 15px 15px 0;*/
+    padding:            0 15px 15px 0;
+}
+
+.postbox .post {
+    /* This will allow the button and text to stack nicely */
+    display:            flex;
+    flex-direction:     column;
+    align-items:        flex-start;
+    justify-content:    flex-end;
+}
+
+/* Typography */
+
+/* put title in front */
+.postbox  h2.entry-title {
+    z-index: 20 !important;
+}
+
+/* set default link color */
+.postbox h2.entry-title a {
+    color:          var(--archive-font-color);
+    font-family:    var(--archive-font-family);
+    text-decoration: none;
+    border-bottom:  none;
+}
+
+/* set default title size */
+.postbox h2.entry-title {
+    font-size:      var(--archive-font-size-md);
+}
+
+
+/* set default normie title size */
+.normie-box>.postbox h2.entry-title {
+    font-size:      var(--archive-font-size-md) !important;
+}
+
+@media (min-width: 768px) {
+    /* set large feature title size */
+    .feature-box>.postbox:nth-child(1) h2.entry-title {
+        font-size:      var(--archive-font-size-lg) !important;
+    }
+
+    /* set small feature title size */
+    /* select nth: 2-4 */
+    .feature-box>.postbox:nth-child(n+2):nth-child(-n+5) h2.entry-title {
+       font-size:      var(--archive-font-size-sm) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* set title size same for all elements */
+    /* select nth: 1-4 */
+    .feature-box>.postbox:nth-child(-n+5) h2.entry-title {
+        font-size:      var(--archive-font-size-md) !important;
+    }
+}
+
+/* excerpt */
+.postbox .entry-content {
+    font-size:          var(--caption-font-size);
+    color:              var(--body-font-color);
+    font-family:        var(--caption-font-family);
+    border-bottom:      initial !important;
+}
+
+.postbox .entry-content a {
+    text-decoration:    none;
+    border-bottom:      initial;
+    color:              var(--body-font-color);
+}
+
+/* make smaller in title box */
+.feature-box>.postbox:nth-child(n+2):nth-child(-n+5) .entry-content {
+    font-size:      .7rem;
+}
+
+@media (max-width: 768px) {
+/* set feature excerpt back to normal size */
+    /* select nth: 2-4 */
+    .feature-box>.postbox:nth-child(n+2):nth-child(-n+5) .entry-content {
+       font-size:      var(--caption-font-size);
+    }
+}
+
+/* button type */
+.postbox .cat-link-btn {
+    font-family:    var(--archive-font-family);
+}
+
+/* set default hover link color */
+.postbox:hover h2.entry-title a {
+    color:          var(--link-font-color);
+}
+
+/* slightly reduce size of buttons in features 2-5 */
+.feature-box>.postbox:nth-child(n+2):nth-child(-n+5) .cat-link-btn {
+    font-size:      .8rem;
+}
+
+/* make them regular size when the screen is narrow */
+@media (max-width: 768px) {
+    /* set title size same for all elements */
+    /* select nth: 1-4 */
+    .feature-box>.postbox:nth-child(n+2):nth-child(-n+5) .cat-link-btn {
+        font-size:      1rem;
+    }
+}
+
+/* Image */
+
+.postbox .post img {
+    position:       absolute;
+    object-fit:     cover !important;
+    width:          100%;
+    height:         100%;
+    /*width:        100%;
+    max-width:      initial;*/
+    transition:     transform 1s ease-in-out;
+    z-index:        -20;
+}
+
+.postbox:hover img {
+    transform:      scale(1.1);
+}
+
+.postbox .post:after {
+    display:            block;
+    position:           absolute;
+    bottom:             0; left: 0;
+    width:              100%; 
+    height:             40%;
+    content:            '';
+    background-image:   linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));
+    /*background-color: black;*/
+    /*background-size:  cover;*/
+    z-index:            -10;
+}
+
+/* Positioning title */
+
+.postbox .entry-header {
+    order:          3;
+}
+
+.postbox .entry-title {
+    /*position:       absolute;*/
+    bottom:         0;
+    padding:        10px;
+    word-wrap:      break-word;
+    max-width:      100%;
+    line-height:    1.2 !important;
+    z-index:        10;
+}
+
+/* Positioning excerpt */
+
+.postbox .entry-content {
+    align-self:     center;
+    order:          1;
+    height:         100%;
+    width:          90%;
+    display:        flex;
+    align-items:    center;
+    justify-content:center;
+    transform:      translateY(-100%);
+    transition:     transform 0.5s linear;
+}
+
+.postbox:hover .entry-content {
+    transform:      translateY(0);
+}
+
+.postbox .post_excerpt {
+    /*position: absolute;*/
+    top:            0;
+    left:           0;
+    background-color: rgba(255,255,255,0.90);
+    padding:        10px;
+    z-index:        20;
+}
+
+.postbox .post_excerpt p {
+    display:            inline;
+    /*margin-bottom:    0;*/
+}
+
+/* Buttons */
+
+.cat-link-btn {
+    /*position:         absolute;*/
+    bottom:             3.25em;
+    left:               0.5em;
+    margin-left:        10px;
+    padding:            .2rem .5rem !important;
+    background-color:   var(--link-font-color) !important;
+    border-color:       var(--link-font-color) !important;
+    z-index:            20;
+    order:              2;
+    display:            none;
+}
+
+.cat-link-btn:hover {
+    background-color:   var(--link-font-color-fade) !important;
+    border-color:       var(--link-font-color-fade) !important;
+}
+
+/* Feature-box layout - foundational */
+
+.feature-box {
+    display:            grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 250px 250px;
+    z-index: -100;
+}
+
+@media (max-width: 992px) {
+    .feature-box {
+        display:        flex;
+        flex-wrap:      wrap;
+        flex-direction: row;
+        justify-content:flex-start;
+    }
+    .feature-box>.postbox {
+        height:         300px;
+        /* We don't want boxes to smooshed narrower than a square */
+        /* This rule triggers most of the redrawing of the columns */
+        min-width:      300px;
+        flex-grow:      1;
+        flex-basis:     33%;
+    }
+    .feature-box>.postbox:nth-child(1) {
+        min-width:      calc(100% - 15px) !important;
+    }
+}
+
+/* Feature-box layout - items */
+
+.feature-box>.postbox:nth-child(1) {
+    grid-column:        1 / span 2;
+    grid-row:           1 / span 2;
+}
+
+.feature-box>.postbox:nth-child(2) {
+    grid-column:        3;
+    grid-row:           1;
+}
+.feature-box>.postbox:nth-child(3) {
+    grid-column:        4;
+    grid-row:           1;
+}
+.feature-box>.postbox:nth-child(4) {
+    grid-column:        3;
+    grid-row:           2;
+}
+.feature-box>.postbox:nth-child(5) {
+    grid-column:        4;
+    grid-row:           2;
+}
+
+/* Normie-box layout - items */
+
+.normie-box {
+    display:            flex;
+    flex-wrap:          wrap;
+    flex-direction:     row;
+    justify-content:    flex-start; 
+    z-index: -100;
+}
+
+/* Normie-box layout - items */
+
+/* make sure the last items behaves */
+.normie-box>.filler {
+    min-width:          300px;
+    flex-grow:          1;
+    flex-basis:         31%;
+}
+
+.normie-box>.postbox {
+    height:             300px;
+    /* We don't want them to smooshed narrower than a square */
+    /* This rule triggers most of the redrawing of the columns */
+    min-width:          300px;
+    flex-grow:          1;
+    flex-basis:         31%;
+    /*max-width:        calc(66% - 7px) !important;*/
+}
+
+@media (max-width: 768px) {
+    .normie-box>.postbox {
+        max-width:      calc(100% - 7px) !important;;
+    }
+}
