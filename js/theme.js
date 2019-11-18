@@ -77,6 +77,24 @@ $(function(){
         }
 
 
+        // Set media default with blocks
+        //
+        function modifyImageLinkDestinationDefault( settings, name ) {
+           // Override core default value for LinkDestination and change it to media 
+           if ( name == "core/image" ) {
+                // Set image block default destination.
+                settings.attributes.linkDestination.default = "media";
+                $(".components-select-control__input").val("media");
+            }
+            return settings;
+        }
+        // Add settings filter to block registration.
+        wp.hooks.addFilter(
+            "blocks.registerBlockType", 
+            "modes-io/modify-image-link-destination-default",
+            modifyImageLinkDestinationDefault
+        );
+
 
     }, 250);
 })

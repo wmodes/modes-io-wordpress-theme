@@ -1,0 +1,19 @@
+
+
+@media (min-width: 1070px) {}
+    /* alignleft: push to right of text margin */
+    .block-editor-block-list__layout .block-editor-block-list__block[data-align=left]>.block-editor-block-list__block-edit {
+        margin-left: -150px !important;
+    }
+
+    /* alignright: push to right of text margin */
+    .block-editor-block-list__layout .block-editor-block-list__block[data-align=right]>.block-editor-block-list__block-edit {
+        margin-right: -150px !important;
+    }
+
+    /* gallery: push to right and left of text margin */
+    .block-editor-block-list__layout .block-editor-block-list__block[data-type="core/gallery"]>.block-editor-block-list__block-edit {
+        margin-left: -150px !important;
+        margin-right: -150px !important;
+    }
+}

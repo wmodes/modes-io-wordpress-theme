@@ -42,9 +42,13 @@ function modes_io_after_theme_setup() {
     add_theme_support( 'align-wide' );
     // Remove parent theme's excerpt generation function
     remove_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
+    // Add editor theme file
+    add_editor_style( 'editor-style.css' );
+    // add default "Link to:" for media 
+    // doesn't work with Gutenberg blocks
+    // update_option( 'image_default_link_type', 'file' );
 }
 add_action( 'after_setup_theme', 'modes_io_after_theme_setup' );
-
 
 //*********************************************************
 //
