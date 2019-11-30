@@ -12,6 +12,31 @@
 @ini_set( 'post_max_size', '64M');
 @ini_set( 'max_execution_time', '300' );
 
+//**********************************************************
+//
+// Custom templates
+//
+//**********************************************************/
+
+// We don't need to do one damn thing here to add custom templates.
+// We don't have to hook into single_template to identify those files.
+// We don't have to create a custom taxonomy.
+//
+// All we have to do is create a template file with the following 
+// at the top in php tags:
+//
+// /*
+//  * Template Name: Screen
+//  * Template Post Type: post, page
+//  */
+//   
+// get_header();
+//
+// At that point, it will be read by WP as a template file, and will
+// show up in the "Post Attributes" or "Page Attributes" section of 
+// the post or page. This has been a feature of WP for pages since forever,
+// and for posts since 4.7 in 2016.
+
 
 //**********************************************************
 //
@@ -208,7 +233,7 @@ function save_post_import( $post_id ) {
         return $post_id;
     }
     // if author doesn't have privs, do nothing
-    if ( ! current_user_can( 'edit_post', $post_id ) || 'post' != $_POST['post_type'] ) {
+    if ( ! current_user_can( 'edit_post', $post_id )) {
         return $post_id;
     }
     // if we are on the edit.php screen
@@ -216,7 +241,7 @@ function save_post_import( $post_id ) {
     // if ( 'edit' === $current_screen->parent_base ) {
     // if ( $current_screen->id == 'edit-post' ) {
     if (isset($_POST['importance']) ) {
-        $post_import = empty( $_POST['importance'] ) ? 25 : $_POST['importance'];
+        $post_import = empty( $_POST['importance'] ) ? 10 : $_POST['importance'];
         // $post_import = $_POST['importance'];
         update_post_meta( $post_id, 'importance', $post_import );
     }
@@ -237,7 +262,7 @@ function quick_edit_javascript() {
         <script type="text/javascript">
             function field_importance(fieldValue) {
                 inlineEditPost.revert();
-                jQuery(".importance").val(fieldValue ? fieldValue : 0);
+                jQuery(".importance").val(fieldValue ? fieldValue : 10);
             }
         </script>
     ');
@@ -251,8 +276,7 @@ function expand_quick_edit_link( $actions, $post ) {
     if ( 'post' != $current_screen->post_type ) {
         return $actions;
     }
-    $data                               = $post->importance;
-    $data                               = empty( $data ) ? 0 : $data;
+    $data                               = empty( $post->importance ) ? 10 : $post->importance;
     $actions['inline hide-if-no-js']    = '<a href="#" class="editinline" title="';
     $actions['inline hide-if-no-js']    .= esc_attr( 'Edit this item inline' ) . '"';
     $actions['inline hide-if-no-js']    .= " onclick=\"field_importance('{$data}')\" >";
@@ -275,7 +299,7 @@ function update_calc_import( $post_id ) {
     // get importance from post
     $post_import = get_post_meta( $post_id, 'importance', true );
     if ( $post_import == '' ) {
-        $post_import = 25;
+        $post_import = 10;
         update_post_meta( $post_id, 'importance', $post_import);
     }
     // get cat_import from category
@@ -289,7 +313,7 @@ function update_calc_import( $post_id ) {
     }
     $cat_import = get_term_meta($term->term_id, 'cat_import', true);
     if ( ! $cat_import) {
-        $cat_import = 25;
+        $cat_import = 0;
         update_term_meta($term->term_id, 'cat_import', $cat_import);
     }
     // calculate calc_import
@@ -356,7 +380,8 @@ add_action( 'admin_notices', 'modes_io_bulk_action_notices' );
 //
 function sort_by_calc_and_date($query){
     if(is_archive() or is_home()) {
-        // diff number of posts on page 1
+        // Deal with diff number of posts on page 1
+        //
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         // are we on page one?
         if ( $paged == 1 ) {
@@ -367,24 +392,35 @@ function sort_by_calc_and_date($query){
             $ppp = 21;
             $offset = 20 + ($ppp * ($paged - 2));
         }
-        // now sort by that calc_import and date
-        $query->set(
-            'meta_query',
-            array(
-                'relation' => 'OR',
+        // If this is not a blog, we sort it one way 
+        //
+        if ( ! is_category( 'blog' )) {
+            // now sort by that calc_import and date
+            $query->set(
+                'meta_query',
                 array(
-                    'key' => 'calc_import', 
-                    'compare' => 'NOT EXISTS'
-                ),
-                array(
-                    'key' => 'calc_import', 
-                    'compare' => 'EXISTS'
+                    'relation' => 'OR',
+                        array(
+                            'key' => 'calc_import', 
+                            'compare' => 'NOT EXISTS'
+                        ),
+                        array(
+                            'key' => 'calc_import', 
+                            'compare' => '!=',
+                            'value' => '0'
+                        )
                 )
-            )
-        );
-        // sort first by importance and then by modified date
-        $query->set('orderby', 'meta_value_num modified');
-        $query->set('order', 'DESC');
+            );
+            // sort first by importance and then by modified date
+            $query->set('orderby', 'meta_value_num modified');
+            $query->set('order', 'DESC');
+        }
+        // otherwise we are a blog, where we sort by DESC date
+        //
+        else {
+            $query->set('orderby', 'date');
+            $query->set('order', 'DESC');
+        }
         // only posts that are published
         $query->set('post_status', 'publish');
         $query->set('posts_per_page', $ppp);

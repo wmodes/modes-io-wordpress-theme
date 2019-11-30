@@ -448,6 +448,11 @@ figure.wp-block-image.pano:hover:before,
 
 /* Site-title and Navbar */
 
+nav.navbar.bg-primary {
+    background-color:   transparent !important;
+    /*background-color: red !important;*/
+}
+
 nav.navbar.bg-primary .container {
     display:                flex;
     flex-direction:         row;
@@ -458,11 +463,8 @@ nav.navbar.bg-primary .container {
     -webkit-justify-content: space-between !important;
     align-items:            center;
     -webkit-align-items:    center;
-}
-
-nav.navbar.bg-primary {
-    background-color:   transparent !important;
-    /*background-color: red !important;*/
+    background:             white !important;
+    z-index:                10000;
 }
 
 nav.navbar .navbar-brand {
@@ -509,7 +511,7 @@ nav.navbar .navbar-brand:hover {
 .entry-meta span a {
     font-size:      var(--caption-font-size);
     color:          var(--caption-font-color);
-    pointer-events: none;
+    /*pointer-events: none;*/
     font-weight:    100;
 }
 .entry-meta .author a {
@@ -835,7 +837,7 @@ hr {
  *
  **********************************************************/
 
-/* Article-box layout */
+/* Postbox layout */
 
 .postbox,
 .postbox .post {
@@ -896,6 +898,12 @@ hr {
     .feature-box>.postbox:nth-child(n+2):nth-child(-n+5) h2.entry-title {
        font-size:      var(--archive-font-size-sm) !important;
     }
+}
+
+/* Date on blog posts */
+body.category-blog .postbox .entry-meta,
+body.category-blog .postbox .entry-meta a {
+    color:          #bbb;
 }
 
 @media (max-width: 768px) {
@@ -996,11 +1004,29 @@ hr {
 .postbox .entry-title {
     /*position:       absolute;*/
     bottom:         0;
+    margin:         0;
     padding:        10px;
     word-wrap:      break-word;
     max-width:      100%;
     line-height:    1.2 !important;
     z-index:        10;
+}
+
+/* Positioning dates on blog posts */
+
+/* first turn off for everything else */
+body:not(.category-blog) .postbox .entry-meta {
+    display:        none;
+}
+
+/* Turn off byline on all archive pages */
+body.archive .postbox .entry-meta .byline {
+    display:        none;
+}
+
+body.category-blog .postbox .entry-meta {
+    margin:         -10px 0 0 0;
+    padding:        0 0 10px 10px;
 }
 
 /* Positioning excerpt */
@@ -1141,4 +1167,89 @@ hr {
     .normie-box>.postbox {
         max-width:      calc(100% - 7px) !important;;
     }
+}
+
+
+/**********************************************************
+ *
+ * EXTRAS
+ *
+ **********************************************************/
+
+.collapseomatic {
+    font-size:      1.2em;
+    /* font-weight: bold; */
+    display:        inline-block;
+}
+
+
+/**********************************************************
+ *
+ * CUSTOM TEMPLATES
+ *
+ **********************************************************/
+
+/* Screen Template */
+
+.post-template-single-screen-min .navbar,
+.post-template-single-screen-header .navbar {
+    margin-top: -15px;
+}
+
+.post-template-single-screen-header .navbar .container {
+    border-bottom: solid 1px gray;
+}
+
+.post-template-single-screen-min nav.navbar.bg-primary .container {
+    background-color: transparent !important;
+    min-width: 100%;
+}
+
+.post-template-single-screen-min #single-wrapper,
+.post-template-single-screen-header #single-wrapper {
+    padding:            0;
+    margin-top:         0 !important;
+    margin-bottom:      30px !important;
+    /*overflow:           hidden;*/
+}
+
+.post-template-single-screen-header #wrapper-navbar a.navbar-brand {
+    z-index:            10000;
+}
+
+.post-template-single-screen-min #wrapper-navbar a.navbar-brand {
+    visibility:            hidden;
+}
+
+.post-template-single-screen-min .frame-wrapper,
+.post-template-single-screen-header .frame-wrapper {
+    position:           relative;
+    width:              100%; 
+    height:             100%; 
+    /*padding-top:        30px;*/
+}
+
+.post-template-single-screen-min .frame-wrapper iframe,
+.post-template-single-screen-header .frame-wrapper iframe {
+    /*flex-grow: 1; */
+    position:           fixed;
+    top:                0;
+    left:               0;
+    border:             none; 
+    margin:             0 0 0 0; 
+    height:             100vh;
+    width:              100vw;
+}
+
+.post-template-single-screen-header .frame-wrapper iframe {
+    padding:            67px 0 0 0;
+}
+
+.post-template-single-screen-min .frame-wrapper iframe {
+    padding:            0;
+}
+
+.post-template-single-screen-min .site-info,
+.post-template-single-screen-header .site-info {
+    display: none;
 }
