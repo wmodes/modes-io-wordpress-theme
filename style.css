@@ -182,12 +182,32 @@ a img {
 .widget a,
 .singlenav a,
 .commentlist a,
+.search a:hover,
 .logged-in-as a,
 .post-navigation a,
-.pagination a { 
+.pagination a,
+.comments-area a { 
     color:              var(--link-font-color);
     text-decoration:    none; 
 }
+
+.entry-header a:hover,
+.entry-content a:hover,
+.entry-footer a:hover,
+#wrapper-footer a:hover,
+.widget a:hover,
+.singlenav a:hover,
+.commentlist a:hover,
+.search a:hover,
+.logged-in-as a:hover,
+.post-navigation a:hover,
+.pagination a:hover,
+.comments-area a:hover {  
+    color:              var(--link-font-color);
+    text-decoration:    none;
+    border-bottom:      dotted 2px var(--link-font-color);
+}
+
 
 .page-link {
     color:              var(--link-font-color) !important;
@@ -199,21 +219,6 @@ a img {
 }
 .pagination {
     margin-top: 1.5rem;
-}
-
-    
-.entry-content a:hover,
-.entry-footer a:hover,
-#wrapper-footer a:hover,
-.widget a:hover,
-.singlenav a:hover,
-.commentlist a:hover,
-.logged-in-as a:hover,
-.post-navigation a:hover,
-.pagination a:hover {  
-    color:              var(--link-font-color);
-    text-decoration:    none;
-    border-bottom:      dotted 2px var(--link-font-color);
 }
 
 a,
@@ -736,13 +741,17 @@ hr {
 
 /* Ordered lists */
 
+.hentry,
+.reset-counter {
+    counter-reset:      list-count;
+}
+
 .hentry ol {
     list-style:         none;
     *list-style:        decimal;
     padding:            0;
     margin-bottom:      2rem;
     text-shadow:        0 1px 0 rgba(255,255,255,.5);
-    counter-reset:      list-count;
 }
 
 .hentry ol li {

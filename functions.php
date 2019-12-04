@@ -293,33 +293,57 @@ add_filter( 'post_row_actions', 'expand_quick_edit_link', 10, 2 );
 //
 //*********************************************************
 
+/**
+ * is_edit_page 
+ * function to check if the current page is a post edit page
+ * 
+ * @author Ohad Raz <admin@bainternet.info>
+ * 
+ * @param  string  $new_edit what page to check for accepts new - new post page ,edit - edit post page, null for either
+ * @return boolean
+ */
+function is_edit_page($new_edit = null){
+    global $pagenow;
+    //make sure we are on the backend
+    if (!is_admin()) return false;
+    // is this an edit or add page?
+    if($new_edit == "edit")
+        return in_array( $pagenow, array( 'post.php',  ) );
+    elseif($new_edit == "new") //check for new post page
+        return in_array( $pagenow, array( 'post-new.php' ) );
+    else //check for either new or edit
+        return in_array( $pagenow, array( 'post.php', 'post-new.php' ) );
+}
+
 // calc_import: Update calculated importance for a post
 //
 function update_calc_import( $post_id ) {
-    // get importance from post
-    $post_import = get_post_meta( $post_id, 'importance', true );
-    if ( $post_import == '' ) {
-        $post_import = 10;
-        update_post_meta( $post_id, 'importance', $post_import);
-    }
-    // get cat_import from category
-    $term_list = wp_get_post_terms($post_id, 'category', ['fields' => 'all']);
-    foreach($term_list as $term) {
-        if( get_post_meta($post_id, '_yoast_wpseo_primary_category', true) == $term->term_id ) {
-            $name =  $term->name;
-            // print_r( $term );
-            $link = get_category_link( $term->term_id );
+    if (! is_edit_page('new')){
+        // get importance from post
+        $post_import = get_post_meta( $post_id, 'importance', true );
+        if ( $post_import == '' ) {
+            $post_import = 10;
+            update_post_meta( $post_id, 'importance', $post_import);
         }
+        // get cat_import from category
+        $term_list = wp_get_post_terms($post_id, 'category', ['fields' => 'all']);
+        foreach($term_list as $term) {
+            if( get_post_meta($post_id, '_yoast_wpseo_primary_category', true) == $term->term_id ) {
+                $name =  $term->name;
+                // print_r( $term );
+                $link = get_category_link( $term->term_id );
+            }
+        }
+        $cat_import = get_term_meta($term->term_id, 'cat_import', true);
+        if ( ! $cat_import) {
+            $cat_import = 0;
+            update_term_meta($term->term_id, 'cat_import', $cat_import);
+        }
+        // calculate calc_import
+        $calc_import = $post_import * $cat_import / 100 ;
+        // update meta data for post
+        update_post_meta( $post_id, 'calc_import', $calc_import );
     }
-    $cat_import = get_term_meta($term->term_id, 'cat_import', true);
-    if ( ! $cat_import) {
-        $cat_import = 0;
-        update_term_meta($term->term_id, 'cat_import', $cat_import);
-    }
-    // calculate calc_import
-    $calc_import = $post_import * $cat_import / 100 ;
-    // update meta data for post
-    update_post_meta( $post_id, 'calc_import', $calc_import );
 }
 
 // calc_import: Add bulk actions to post admin screen
