@@ -789,7 +789,15 @@ hr {
 /* Remove tag and category links */
 
 .hentry .cat-links,
-.hentry .tags-links,
+.hentry .tags-links {
+    display:            block;
+}
+
+.hentry .entry-footer {
+    margin-bottom:      1em;
+}
+
+
 .hentry .edit-link {
     display:            none;
 }
@@ -1191,6 +1199,25 @@ body.category-blog .postbox .entry-meta {
     display:        inline-block;
 }
 
+/* Contact Form 7 */
+
+.wpcf7 .wpcf7-submit,
+.wpcf7 input-group[type=submit] {
+    color:          var(--link-font-color) !important;
+    border-color:   var(--link-font-color) !important;
+}
+
+.wpcf7 .wpcf7-submit:hover,
+.wpcf7 input:hover[type=submit] {
+    color: #fff !important;
+    background-color: var(--link-font-color) !important;
+    border-color:   var(--link-font-color) !important;
+}
+
+/* Remove recaptura logo and badge */
+.grecaptcha-badge {
+    display: none !important;
+}
 
 /**********************************************************
  *
