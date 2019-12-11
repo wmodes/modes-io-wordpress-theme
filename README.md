@@ -3,6 +3,8 @@ Wordpress theme (a child of understrap) for modes.io
 
 A re-design of the modes.io site (originally designed in 2013) from the groundup using a blank-slate theme and a flat information design.
 
+![modes-io-understap theme in action](screenshot.png)
+
 ## Design Goals
 
 Here are the design goals for the modes-io-understap theme.
