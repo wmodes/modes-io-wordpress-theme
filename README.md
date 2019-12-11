@@ -65,7 +65,7 @@ Here are some suggested guidelines:
 1. Description has a white band, and black text over
 1. Button in link color above or below text specifies primary category and links to category page
 
-###Navigation
+### Navigation
 
 1. Encourage "wandering" route through the site
 1. Minimal navigation, maybe only a navburger with a mega menu
