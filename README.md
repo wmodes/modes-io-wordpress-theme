@@ -22,7 +22,7 @@ Here are some suggested guidelines:
 1. Selected categories (sculpture, social practice, community organizing, digital art) are featured in menus
 1. Menus link to category index pages
 
-![modes-io-understap theme post page](screenshot2.png)
+![modes-io-understap theme post page](screenshot3.png)
 
 ### Post Presentation
 
@@ -48,7 +48,7 @@ Here are some suggested guidelines:
 1. As much as possible, feature photos have people or action
 1. If given the choice, warm colors are better
 
-![modes-io-understap theme category page](screenshot3.png)
+![modes-io-understap theme category page](screenshot2.png)
 
 ###  Index and Archive Pages
 
